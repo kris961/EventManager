@@ -1,0 +1,44 @@
+<!-- Default form login -->
+<div class="container">
+<form #f="ngForm" class="text-center border border-light p-5" (ngSubmit)="submitFormHandler(f.value)">
+
+    <p class="h4 mb-4">Sign in</p>
+  
+    <!-- Email -->
+    <input [class.is-invalid]="userEmail?.touched && !!userEmail?.invalid" #userEmail="ngModel" name="email" type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" ngModel required email appSubmitOnValid>
+    <p *ngIf="userEmail.touched && userEmail.errors?.required" class="text-danger">
+      Email is required!
+    </p>
+    <p *ngIf="userEmail.touched && userEmail.errors?.email" class="text-danger">
+      Email is invalid!
+    </p>
+    <!-- Password -->
+    <input [class.is-invalid]="userPassword?.touched && !!userPassword?.invalid" #userPassword="ngModel" name="password" type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" ngModel required minlength="6">
+  
+    <p *ngIf="userPassword.touched && userPassword.errors?.required" class="text-danger">
+      Password is rquired!
+    </p>
+
+    <p *ngIf="userPassword.touched && userPassword.errors?.minlength" class="text-danger">
+      Password is must be at least 6 characters long!
+    </p>
+
+    <p *ngIf="errorMessege.length>0" class="error" class="text-danger">
+      {{errorMessege}}
+    </p>
+
+    <!-- Sign in button -->
+    <button 
+    [disabled]="f.invalid || isLoading"
+    [class.disabled]="isLoading ||f.invalid" 
+     mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+  
+    <!-- Register -->
+    <p>Not a member?
+      <a routerLink="/user/register">Register</a>
+    </p>
+  
+  </form>
+</div>
+  <!-- Default form login -->
+  

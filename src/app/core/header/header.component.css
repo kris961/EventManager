@@ -26,7 +26,7 @@
     margin-right: 20px;
 }
 
-.management>li:hover{
+.management>li>a:hover{
     cursor: pointer;
 }
 
@@ -35,13 +35,13 @@
 }
 
 .user{
-    padding-top: 30px;
+    padding-top: 38px;
     display: flex;
     list-style: none;
 }
 
 .management{
-    padding-top: 30px;
+    padding-top: 38px;
     display: flex;
     list-style: none;
 }
@@ -49,4 +49,9 @@
 .mat-toolbar-single-row{
     margin-bottom: 20px;
     padding-bottom: 10px;
+}
+
+a{
+    text-decoration: inherit;
+    color:inherit;
 }

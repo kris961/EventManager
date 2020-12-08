@@ -5,27 +5,30 @@
         </span>
         <ul class="management">
             <li>
-                <a>Home</a>
+                <a routerLink="home">Home</a>
             </li>
-            <li>
+            <li *ngIf="isLogged">
                 <a>Events</a>
             </li>
-            <li>
+            <li *ngIf="isLogged">
                 <a>Social</a>
             </li>
         </ul>
         <ul class="user">
-            <li>
-                <a>Log in</a>
+            <li *ngIf="!isLogged">
+                <a routerLink="/user/login">Log in</a>
+            </li>
+            <li *ngIf="!isLogged">
+                <a routerLink="/user/register">Register</a>
             </li>
             <li>
-                <a>Register</a>
+                <a routerLink="/user/profile" ></a>
             </li>
-            <li>
-                <a>@Kris</a>
-            </li>
-            <li>
+            <li *ngIf="isLogged">
                 <i class="fas fa-user"></i>
+            </li>
+            <li *ngIf="isLogged"> 
+                <a (click)="logoutHandler()">Logout</a>
             </li>
         </ul>
     </div>
