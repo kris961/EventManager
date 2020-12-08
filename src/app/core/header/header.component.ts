@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  email=localStorage.getItem('email');
+  email = "";
   isLogged = false;
   constructor(private userService: UserService, private router: Router, private auth: AuthService) { }
 
@@ -27,7 +27,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.auth.user$.subscribe((user) => {
       this.isLogged = !!user;
-      console.log(user);
+      this.email = localStorage.getItem('email')!;
+      console.log(user?.uid);
     });
   }
 }
