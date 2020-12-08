@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "eventmanager-c9876": {
+      "hosting": {
+        "Event-Manager": [
+          "eventmanager-c9876"
+        ]
+      }
+    }
+  }
+}
