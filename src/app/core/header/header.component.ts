@@ -9,12 +9,14 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  email=localStorage.getItem('email');
   isLogged = false;
   constructor(private userService: UserService, private router: Router, private auth: AuthService) { }
 
   logoutHandler() {
     this.auth.logout$().subscribe({
       next: () => {
+        localStorage.clear();
         this.router.navigate(['/user/login']);
         console.log('called');
       },

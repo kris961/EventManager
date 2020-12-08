@@ -62,6 +62,7 @@ export class RegisterComponent {
     this.authService.register({email, password}).subscribe({
       next: () => {
         this.isLoading = false;
+        localStorage.setItem('email',email);
         this.router.navigate(['/home']);
       },
       error: (err) => {

@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
       this.userService.login(formValue).subscribe({
         next:()=>{
           this.isLoading=false;
+          localStorage.setItem('email',formValue.email);
           this.router.navigate(['/home'])
         },
         error:(err)=>{

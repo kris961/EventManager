@@ -10,25 +10,17 @@ import { AuthService } from '../services/auth.service';
 export class AuthGuard implements CanActivateChild {
 
 
-  isLogged=true;
+  isLogged=!!localStorage.getItem('email');
   constructor(
     private userService: UserService,
     private router: Router,
     private auth: AuthService
     ) { }
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    this.auth.user$.subscribe((user) => {
-      if (user!==undefined) {
-        this.isLogged=false;
-        console.log(this.isLogged);
-      }
-    });
 
 
     const isLoggedFromData = childRoute.data.isLogged;
     if (typeof isLoggedFromData === 'boolean' && isLoggedFromData === this.isLogged) {
-      let isLogged=this.isLogged;
-      this.isLogged=!isLogged
       return true;
     }
     const url = this.router.url;
