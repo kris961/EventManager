@@ -1,0 +1,52 @@
+.nav-container{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+}
+
+.navbar{
+    padding-top: 35px;
+    list-style:none;
+    display: flex;
+    margin-right: 25px;
+}
+
+.logo{
+    padding-top: 15px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.management>li{
+    margin-left:50px;
+}
+
+.user>li{
+    margin-left:20px;
+    margin-right: 20px;
+}
+
+.management>li:hover{
+    cursor: pointer;
+}
+
+.user>li:hover{
+    cursor: pointer;
+}
+
+.user{
+    padding-top: 30px;
+    display: flex;
+    list-style: none;
+}
+
+.management{
+    padding-top: 30px;
+    display: flex;
+    list-style: none;
+}
+
+.mat-toolbar-single-row{
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
