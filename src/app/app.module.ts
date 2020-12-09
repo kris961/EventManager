@@ -15,6 +15,7 @@ import { UserModule } from './user/user.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EventModule } from './event/event.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     CoreModule,
     UserModule,
+    EventModule,
     BrowserModule,
     AppRoutingModule,
     AngularFirestoreModule,

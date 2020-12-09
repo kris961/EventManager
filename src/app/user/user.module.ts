@@ -16,7 +16,7 @@ import { StorageService } from '../core/storage.service';
   declarations: [
     RegisterComponent,
     LoginComponent,
-    ProfileComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

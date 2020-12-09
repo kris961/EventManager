@@ -8,7 +8,10 @@
                 <a routerLink="home">Home</a>
             </li>
             <li *ngIf="isLogged">
-                <a>Events</a>
+                <a routerLink="/event/list">Events</a>
+            </li>
+            <li *ngIf="isLogged">
+                <a routerLink="/event/add">Create Event</a>
             </li>
             <li *ngIf="isLogged">
                 <a>Social</a>

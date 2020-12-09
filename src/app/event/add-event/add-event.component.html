@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>Create Event</h1>
+  <form [formGroup]="form" (ngSubmit)="submitHandler()">
+    <div *ngIf="firebaseImgUrl===undefined && !isLoading">
+    <img ng src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/shutterstock_199419065.jpg">
+  </div>
+  <div *ngIf="firebaseImgUrl!==undefined && !isLoading">
+    <img ng src={{firebaseImgUrl}}>
+  </div>
+  <div *ngIf="isLoading">
+    <img ng src="https://i.stack.imgur.com/hzk6C.gif">
+  </div>
+    <input formControlName="title" [class.is-invalid]="titleInput?.touched && !!titleInput?.invalid" type="text"
+      id="input1" name="title" placeholder="Title for your event">
+    <p *ngIf="titleInput?.touched && titleInput?.errors?.required" class="text-danger">
+      Title is required!
+    </p>
+    <p *ngIf="titleInput?.touched && titleInput?.errors?.minlength" class="text-danger">
+      Title must be at least 3 characters long!
+    </p>
+    <input formControlName="location" [class.is-invalid]="locationInput?.touched && !!locationInput?.invalid"
+      type="text" id="input1" name="location" placeholder="Location">
+    <p *ngIf="locationInput?.touched && locationInput?.errors?.required" class="text-danger">
+      Location is required!
+    </p>
+    <p *ngIf="locationInput?.touched && locationInput?.errors?.minlength" class="text-danger">
+      Location must be at least 3 characters long!
+    </p>
+
+    <input formControlName="date" [class.is-invalid]="dateInput?.touched && !!dateInput?.invalid" type="text"
+      id="input1" name="date" placeholder="Date">
+    <p *ngIf="dateInput?.touched && dateInput?.errors?.required" class="text-danger">
+      Date is required!
+    </p>
+    <input (change)="uploadImage($event)" accept="*.png.jpg" type="file" id="input1" name="image">
+
+    <input type="text" formControlName="details" [class.is-invalid]="detailsInput?.touched && !!detailsInput?.invalid"
+      id="details" name="details" placeholder="Event details..." style="height:200px">
+    <p *ngIf="detailsInput?.touched && detailsInput?.errors?.required" class="text-danger">
+      Details are required!
+    </p>
+    <p *ngIf="detailsInput?.touched && detailsInput?.errors?.minlength" class="text-danger">
+      Details must be at least 10 characters long!
+    </p>
+    <input [disabled]="form.invalid || isLoading" [class.disabled]="form.invalid || isLoading" type="button" id="submit" value="Submit">
+  </form>
+</div>
