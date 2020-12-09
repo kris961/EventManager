@@ -6,6 +6,8 @@ import {MatIconModule} from '@angular/material/icon'
 import { RouterModule } from '@angular/router';
 import { UserService } from '../user/user.service';
 import { AuthService } from './services/auth.service';
+import { AppRoutingModule } from '../app-routing.module';
+import { UserRoutingModule } from '../user/user-routing.module';
 
 
 

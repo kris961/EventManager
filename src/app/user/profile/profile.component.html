@@ -1,0 +1,29 @@
+<ng-template #defaultMode>
+    <div class="flex">
+      <p>Email: </p>
+      <p>{{(currentUser|async)?.email}}</p>
+    </div>
+    <button class="edit-button" (click)="toggleEditMode()">Edit</button>
+  </ng-template>
+  
+  <ng-template #editMode>
+    <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
+      <div class="flex">
+        <label for="Image">Image File</label>
+        <input type="file" (change)="upload($event)" accept="*.png.jpg" id="">
+      </div>
+      <div class="flex">
+        <p>Email: </p>
+        <input type="email" name="email" id="email" [ngModel]="(currentUser | async)?.email">
+      </div>
+      <button *ngIf="!isLoading" type="button" class="red-button" (click)="toggleEditMode()">Cancel</button>
+      <button *ngIf="!isLoading" class="green-button">Save</button>
+      <p *ngIf="isLoading">Loading...</p>
+    </form>
+  </ng-template>
+  
+  <div class="profile">
+    <img src={{(currentUser|async)?.photoURL}} alt="default user">
+    <h3>User Info:</h3>
+    <ng-container *ngTemplateOutlet="inEditMode ? editMode : defaultMode"></ng-container>
+  </div>

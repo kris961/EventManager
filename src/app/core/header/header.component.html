@@ -16,10 +16,10 @@
         </ul>
         <ul class="user">
             <li *ngIf="!isLogged">
-                <a routerLink="/user/login">Log in</a>
+                <a  routerLink="/user/login">Log in</a>
             </li>
             <li *ngIf="!isLogged">
-                <a routerLink="/user/register">Register</a>
+                <a  routerLink="/user/register">Register</a>
             </li>
             <li>
                 <a routerLink="/user/profile" >{{this.email}}</a>
@@ -27,7 +27,7 @@
             <li *ngIf="isLogged">
                 <i class="fas fa-user"></i>
             </li>
-            <li *ngIf="isLogged"> 
+            <li *ngIf="isLogged" > 
                 <a (click)="logoutHandler()">Logout</a>
             </li>
         </ul>

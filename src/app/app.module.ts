@@ -14,7 +14,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserModule } from './user/user.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './user/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -24,14 +23,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
   ],
   imports: [
+    NgbModule,
     CoreModule,
+    UserModule,
     BrowserModule,
     AppRoutingModule,
+    AngularFirestoreModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    UserModule,
-    NgbModule
   ],
   providers: [],
   bootstrap: [
