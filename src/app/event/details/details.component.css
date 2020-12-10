@@ -117,3 +117,85 @@ label{
     font-size:20px;
     margin-bottom: 10px;
   }
+
+/*   comment section */
+/* .commentContainer{
+  margin-top:30px;
+  margin-bottom: 200px;
+  position: absolute;
+  align-content: center;
+}
+.comment{
+  border-color:gray;
+  border-style: solid;
+  background-color:#F2F2F2;
+  margin-left: 280px;
+  width: 550px;
+  max-height: 200px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.emailContainer{
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom: solid;
+  border-color:gray;
+  width: 544px;
+  height: 50px;
+  background-color: #673AB7;
+}
+
+.email{
+  text-decoration: none;
+  color:white;
+  font-size:20px;
+  text-align: center;
+  margin-left:10px;
+  top:15px;
+  position: absolute;
+}
+
+.commented{
+  position: absolute;
+  top:16px;
+  color:white;
+  font-size:20px;
+  left:580px;
+}
+
+.content{
+  max-width:450px;
+}
+.text{
+  margin-top:10px;
+  margin-left: 10px;
+  max-width:450px;
+  word-wrap: break-word;
+} */
+.coms
+{
+  position: relative;
+  left:170px;
+}
+
+.commentContainer{
+  margin-top:20px;
+}
+body{margin-top:20px;}
+
+.comment-wrapper .panel-body {
+    max-height:650px;
+    overflow:auto;
+}
+
+.comment-wrapper .media-list .media img {
+    width:64px;
+    height:64px;
+    border:2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+    border-bottom:1px dashed #efefef;
+    margin-bottom:25px;
+}

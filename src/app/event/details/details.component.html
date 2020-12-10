@@ -70,12 +70,59 @@
         <div class="details">{{this.event.details}}</div>
 
         <label>Created by:</label>
-        <div class="creator">{{this.event.creatorName}}</div>
+        <div class="creator"><a>{{this.event.creatorName}}</a></div>
 
 
         <button *ngIf="this.event.creatorId===this.currUser" (click)="toggleEditMode()" [disabled]="isLoading"
             [class.disabled]="isLoading" type="button" id="submit" value="Edit">Edit</button>
         <button *ngIf="this.event.creatorId===this.currUser" [disabled]="isLoading" [class.disabled]="isLoading"
             type="button" id="cancel" class="red-button" (click)="deleteHandler()">Delete</button>
+    </div>
+</div>
+
+<div *ngIf="!isLoading" class="commentContainer">
+    <!--     <div class="comment">
+        <div class="emailContainer">
+            <a routerLink="/profile/{{this.currUser}}" class="email">{{this.currUserEmail}}</a>
+            <span class="commented">Commented :</span>
+        </div>
+        <div class="content">
+            <p class="text">
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            </p>
+        </div>
+    </div> -->
+    <div class="container">
+        <div class="coms">
+            <div class="col-md-8 col-sm-12">
+                <div class="comment-wrapper">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            Comment panel
+                        </div>
+                        <div class="panel-body">
+                            <form #f="ngForm" >
+                            <input type="text" #text class="form-control" placeholder="write a comment..." rows="3">
+                            <br>
+                            <button type="submit" (click)='createComment(text.value)' class="btn btn-info pull-right">Post</button>
+                        </form>
+                            <div class="clearfix"></div>
+                            <hr>
+                            <ul *ngFor="let comment of commentList" class="media-list">
+                                <li  class="media">
+                                    <div class="media-body">
+                                        <strong class="text-success">{{comment.info.creatorName}}</strong>
+                                        <p>
+                                            {{comment.info.text}}
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>

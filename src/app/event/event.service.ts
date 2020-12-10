@@ -45,4 +45,17 @@ export class EventService {
     return this.firestore.doc('events/' + eventId).update(event);
   }
 
+  createComment(text: any, id: any,eventId:any) {
+    return from(this.firestore.collection('comments').add({
+      creatorId: id,
+      creatorName: this.username,
+      text: text,
+      eventId:eventId
+    }))
+  }
+
+  loadCommentList() {
+    return this.firestore.collection('comments').snapshotChanges();
+   }
+
 }
