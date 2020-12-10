@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { IEvent } from 'src/app/shared/interfaces/IEvent';
+import { Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { fromEvent } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { EventService } from '../event.service';
 
 @Component({
@@ -10,19 +11,39 @@ import { EventService } from '../event.service';
 })
 export class EventListComponent implements OnInit {
 
-  constructor(private eventService: EventService) { }
+  searchInput = "";
+
+  constructor(
+    private eventService: EventService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.eventService.loadEventList().subscribe(data => {
-      this.eventList = data.map((item:any) => {
+      this.eventList = data.map((item: any) => {
         let info = item.payload.doc.data();
-        return {
-          id: item.payload.doc.id,
-          info
+        if (this.searchInput==="") {
+          return {
+            id: item.payload.doc.id,
+            info,
+            name:"works"
+          }
         }
+        if (info.name.includes(this.searchInput)) {
+          return {
+            id: item.payload.doc.id,
+            info,
+            name:"works"
+          }
+        }
+        return {name:undefined}
       })
     })
   }
   eventList: any;
+
+  updateSearch(input:any){
+    this.searchInput=input;
+    this.ngOnInit();
+  }
 }
 

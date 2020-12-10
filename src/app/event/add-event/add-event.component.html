@@ -42,6 +42,6 @@
     <p *ngIf="detailsInput?.touched && detailsInput?.errors?.minlength" class="text-danger">
       Details must be at least 10 characters long!
     </p>
-    <input [disabled]="form.invalid || isLoading" [class.disabled]="form.invalid || isLoading" type="button" id="submit" value="Submit">
+    <input [disabled]="form.invalid || isLoading" [class.disabled]="form.invalid || isLoading" type="submit" id="submit" value="Submit">
   </form>
 </div>

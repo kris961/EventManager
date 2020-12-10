@@ -1,12 +1,16 @@
-<h2>Responsive Column Cards</h2>
-<p>Resize the browser window to see the effect.</p>
+<div class="search">
+  <input (keyup)="updateSearch($event.target.value)" type="text" placeholder="Search.." name="search">
+</div>
+<div class="layout">
+  <span  *ngFor="let event of eventList" >
+    <div *ngIf="event.name!==undefined" class="card">
+      <h2>{{event.info.name}}</h2>
 
-<div class="row">
-  <div class="column">
-    <div *ngFor="let event of eventList" class="card">
-      <h3>{{event.info.name}}</h3>
       <img src={{event.info.imgURL}}>
-      <p>{{event.id}}</p>
-      <p>Some text</p>
+
+      <p class="price">{{event.info.creatorName}} $</p>
+
+      <p><a routerLink="event/details{{event.id}}">Details</a></p>
     </div>
-  </div>
+  </span>
+</div>

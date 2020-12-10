@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/user/user.service';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class HeaderComponent {
     private auth: AuthService) {
     auth.authState(user => {
       let email = user?.email
-      console.log(user);
 
       if (user) this.currUser = email!;
       if (!user) this.currUser = undefined!;

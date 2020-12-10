@@ -95,7 +95,7 @@ export class AddEventComponent implements OnInit{
       next:()=>{
         this.isLoading=false;
         console.log("event added")
-        //this.router.navigate(['']);
+        this.router.navigate(['home']);
       },
       error:(err)=>{
         this.isLoading=false;
