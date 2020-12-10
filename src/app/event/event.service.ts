@@ -29,8 +29,20 @@ export class EventService {
     }))
   }
 
+  getEvent(id: string) {
+    return this.firestore.collection('events').doc(id).get().toPromise()
+  }
+
   loadEventList() {
    return this.firestore.collection('events').snapshotChanges();
+  }
+
+  deleteEvent(eventId:string) {
+    return this.firestore.doc('events/' + eventId).delete();
+  }
+
+  updateEvent(eventId:string, event:any) {
+    return this.firestore.doc('events/' + eventId).update(event);
   }
 
 }

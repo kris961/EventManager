@@ -1,0 +1,81 @@
+<div *ngIf="!isLoading" class="container">
+    <div *ngIf="toggleEdit">
+        <h1>Information</h1>
+        <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
+            <div *ngIf="firebaseImgUrl===undefined && !isLoading">
+                <img ng src={{event.imgURL}}>
+            </div>
+            <div *ngIf="firebaseImgUrl!==undefined && !isLoading">
+                <img ng src={{firebaseImgUrl}}>
+            </div>
+            <div *ngIf="isLoading">
+                <img ng src="https://i.stack.imgur.com/hzk6C.gif">
+            </div>
+            <input #titleInput="ngModel" [ngModel]="event.name"
+                [class.is-invalid]="titleInput?.touched && !!titleInput?.invalid" type="text" id="input1" name="name"
+                placeholder="Title for your event" required minlength="3">
+            <p *ngIf="titleInput?.touched && titleInput?.errors?.required" class="text-danger">
+                Title is required!
+            </p>
+            <p *ngIf="titleInput?.touched && titleInput?.errors?.minlength" class="text-danger">
+                Title must be at least 3 characters long!
+            </p>
+            <input #locationInput="ngModel" [ngModel]="event.location"
+                [class.is-invalid]="locationInput?.touched && !!locationInput?.invalid" type="text" id="input1"
+                name="location" placeholder="Location" required minlength="3">
+            <p *ngIf="locationInput?.touched && locationInput?.errors?.required" class="text-danger">
+                Location is required!
+            </p>
+            <p *ngIf="locationInput?.touched && locationInput?.errors?.minlength" class="text-danger">
+                Location must be at least 3 characters long!
+            </p>
+
+            <input #dateInput="ngModel" [ngModel]="event.date"
+                [class.is-invalid]="dateInput?.touched && !!dateInput?.invalid" type="text" id="input1" name="date"
+                placeholder="Date" required>
+            <p *ngIf="dateInput?.touched && dateInput?.errors?.required" class="text-danger">
+                Date is required!
+            </p>
+            <input (change)="uploadImage($event)" accept="*.png.jpg" type="file" id="input1" name="image">
+
+            <input type="text" #detailsInput="ngModel" [ngModel]="event.details"
+                [class.is-invalid]="detailsInput?.touched && !!detailsInput?.invalid" id="details" name="details"
+                required minlength="10" placeholder="Event details..." style="height:200px">
+            <p *ngIf="detailsInput?.touched && detailsInput?.errors?.required" class="text-danger">
+                Details are required!
+            </p>
+            <p *ngIf="detailsInput?.touched && detailsInput?.errors?.minlength" class="text-danger">
+                Details must be at least 10 characters long!
+            </p>
+            <input [disabled]="f.invalid || isLoading" [class.disabled]="f.invalid || isLoading" type="submit"
+                id="submit" value="Save">
+            <button *ngIf="!isLoading" type="button" id="cancel" class="red-button"
+                (click)="toggleEditMode()">Cancel</button>
+        </form>
+    </div>
+    <div *ngIf="!toggleEdit">
+        <div class="imgContainer">
+            <img class="img" src={{event.imgURL}}>
+        </div>
+
+        <h1 class="title">{{event.name}}</h1>
+
+        <label>Location:</label>
+        <div class="location">{{this.event.location}}</div>
+
+        <label>Date:</label>
+        <div class="date">{{this.event.date}}</div>
+
+        <label>Details:</label>
+        <div class="details">{{this.event.details}}</div>
+
+        <label>Created by:</label>
+        <div class="creator">{{this.event.creatorName}}</div>
+
+
+        <button *ngIf="this.event.creatorId===this.currUser" (click)="toggleEditMode()" [disabled]="isLoading"
+            [class.disabled]="isLoading" type="button" id="submit" value="Edit">Edit</button>
+        <button *ngIf="this.event.creatorId===this.currUser" [disabled]="isLoading" [class.disabled]="isLoading"
+            type="button" id="cancel" class="red-button" (click)="deleteHandler()">Delete</button>
+    </div>
+</div>

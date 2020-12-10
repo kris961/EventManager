@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { EventListComponent } from './event/event-list/event-list.component';
 import { AddEventComponent } from './event/add-event/add-event.component';
 import { MyEventComponent } from './event/my-event/my-event.component';
+import { DetailsComponent } from './event/details/details.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login'])
 const redirectToHome = () => redirectLoggedInTo(['home'])
@@ -39,6 +40,12 @@ const routes: Routes = [
   {
     path: 'event/myEvent',
     component: MyEventComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectToLogin }
+  },
+  {
+    path: 'event/details/:id',
+    component: DetailsComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectToLogin }
   },
