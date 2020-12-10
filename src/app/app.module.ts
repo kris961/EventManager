@@ -16,6 +16,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventModule } from './event/event.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,15 @@ import { EventModule } from './event/event.module';
     CoreModule,
     UserModule,
     EventModule,
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [
     AppComponent,
     HeaderComponent

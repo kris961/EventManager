@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
-import { AuthGuard } from '../guards/auth.guard';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -9,29 +8,31 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  email = "";
-  isLogged=false;
-  constructor(private userService: UserService, private router: Router, private auth: AuthService,private guard:AuthGuard) { }
+export class HeaderComponent {
+  public currUser!: string
+
+  constructor(
+    private router: Router,
+    private auth: AuthService) {
+    auth.authState(user => {
+      let email = user?.email
+      console.log(user);
+
+      if (user) this.currUser = email!;
+      if (!user) this.currUser = undefined!;
+      {
+        this.currUser = email!;
+      }
+    })
+  }
 
   logoutHandler() {
     this.auth.logout$().subscribe({
       next: () => {
         localStorage.clear();
-        this.router.navigate(['/user/login']);
+        this.router.navigate(['/login']);
         console.log('called');
       },
     });
-  }
-
-
-  ngOnInit(): void {
-    this.auth.user$.subscribe((user) => {
-      this.isLogged= !!localStorage.getItem('email');
-      this.email = localStorage.getItem('email')!;
-    });
-
-
-    
   }
 }

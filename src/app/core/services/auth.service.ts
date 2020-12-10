@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { BehaviorSubject, from } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { IUser } from 'src/app/shared/interfaces/IUser';
+import { from } from 'rxjs';
+import { first, map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
+  
+  constructor(private auth: AngularFireAuth) { }
 
-  get user$(){
+  getUser = this.auth.authState.pipe(first()).toPromise();
+
+  authState = this.auth.onAuthStateChanged;
+
+  get user$() {
     return this.auth.user;
   }
 
-  constructor(private auth:AngularFireAuth) { }
 
 
-  logout$(){
+  logout$() {
     return from(this.auth.signOut());
   }
 }

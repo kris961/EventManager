@@ -4,7 +4,6 @@ import { AddEventComponent } from './add-event/add-event.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { EventService } from './event.service';
-import { EventRoutingModule } from './event-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../core/services/auth.service';
 
@@ -18,7 +17,6 @@ import { AuthService } from '../core/services/auth.service';
   ],
   imports: [
     CommonModule,
-    EventRoutingModule,
     FormsModule,
     ReactiveFormsModule
   ],
