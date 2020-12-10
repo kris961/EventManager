@@ -1,34 +1,40 @@
-import { Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { fromEvent } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { EventService } from '../event.service';
 
 @Component({
-  selector: 'app-event-list',
-  templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.css']
+  selector: 'app-my-event',
+  templateUrl: './my-event.component.html',
+  styleUrls: ['./my-event.component.css']
 })
-export class EventListComponent implements OnInit {
+export class MyEventComponent implements OnInit {
+
 
   searchInput = "";
-
+  currUserId="";
   constructor(
     private eventService: EventService,
-    private router: Router) { }
+    private router: Router,
+    private auth: AuthService) {
+      auth.authState(user => {
+        let id = user?.uid
+        if (user) this.currUserId = id!;
+      })
+     }
 
   ngOnInit(): void {
     this.eventService.loadEventList().subscribe(data => {
       this.eventList = data.map((item: any) => {
         let info = item.payload.doc.data();
-        if (this.searchInput==="") {
+        if (this.searchInput==="" && info.creatorId===this.currUserId) {
           return {
             id: item.payload.doc.id,
             info,
             name:"works"
           }
         }
-        if (info.name.includes(this.searchInput)) {
+        if (info.name.includes(this.searchInput) && info.creatorId===this.currUserId) {
           return {
             id: item.payload.doc.id,
             info,
@@ -46,4 +52,3 @@ export class EventListComponent implements OnInit {
     this.ngOnInit();
   }
 }
-

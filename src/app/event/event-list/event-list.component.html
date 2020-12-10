@@ -1,5 +1,5 @@
 <div class="search">
-  <input (keyup)="updateSearch($event.target.value)" type="text" placeholder="Search.." name="search">
+  <input (keyup)="updateSearch($event)" type="text" placeholder="Search.." name="search">
 </div>
 <div class="layout">
   <span  *ngFor="let event of eventList" >

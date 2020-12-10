@@ -1,0 +1,16 @@
+<div class="search">
+    <input (keyup)="updateSearch($event)" type="text" placeholder="Search.." name="search">
+  </div>
+  <div class="layout">
+    <span  *ngFor="let event of eventList" >
+      <div *ngIf="event.name!==undefined" class="card">
+        <h2>{{event.info.name}}</h2>
+  
+        <img src={{event.info.imgURL}}>
+  
+        <p class="price">{{event.info.creatorName}} $</p>
+  
+        <p><a routerLink="event/details{{event.id}}">Details</a></p>
+      </div>
+    </span>
+  </div>
