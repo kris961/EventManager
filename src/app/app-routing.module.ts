@@ -28,8 +28,6 @@ const routes: Routes = [
   {
     path: 'event/list',
     component: EventListComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectToLogin }
   },
   {
     path: 'event/add',
