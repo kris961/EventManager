@@ -70,3 +70,21 @@ img{
 .is-invalid{
     border-color: red !important;
 }
+
+.tcontainer{
+  position: relative;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  bottom:30px;
+  right: 20px;
+  width:1110px;
+  height: 80px;
+  background-color:#673AB7;
+}
+
+h1{
+  font-size:40px;
+  position: relative;
+  top:20px;
+  color:white;
+}

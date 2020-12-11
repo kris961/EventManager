@@ -1,5 +1,7 @@
 <div class="container">
+  <div class="tcontainer">
   <h1>Create Event</h1>
+</div>
   <form [formGroup]="form" (ngSubmit)="submitHandler()">
     <div *ngIf="firebaseImgUrl===undefined && !isLoading">
     <img ng src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/shutterstock_199419065.jpg">

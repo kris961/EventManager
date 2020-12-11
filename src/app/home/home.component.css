@@ -1,0 +1,68 @@
+.loginC{
+    background-color: #673AB7;
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    left :500px;
+    top:100px;
+    border-radius: 15px;
+}
+.registerC{
+    background-color: #673AB7;
+    width: 170px;
+    height: 100px;
+    position: absolute;
+    left: 750px;
+    top:100px;
+    border-radius: 15px;
+}
+   .eventaddC{
+    background-color: #673AB7;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 500px;
+    top:100px;
+    border-radius: 15px;
+}
+   .eventlistC{
+    background-color: #673AB7;
+    width: 170px;
+    height: 100px;
+    position: absolute;
+    left: 750px;
+    top:100px;
+    border-radius: 15px;
+}
+
+.register{
+    color:white;
+    position: relative;
+    top:40px;
+    left:30px;
+    font-size: 30px;
+}
+
+.login{
+    color:white;
+    position: relative;
+    top:40px;
+    left:30px;
+    font-size: 30px;
+}
+
+.create{
+    color:white;
+    position: relative;
+    top:40px;
+    left:10px;
+    font-size: 30px;
+}
+
+.find{
+    color:white;
+    position: relative;
+    top:40px;
+    left:10px;
+    font-size: 30px;
+}

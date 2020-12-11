@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="container">
+    <div *ngIf="!currUser" class="buttons">
+        <div class="loginC">
+            <a class="login" routerLink="/login">Log in</a>
+        </div>
+        <div class="registerC">
+            <a class="register" routerLink="/register">Register</a>
+        </div>
+    </div>
+
+    <div *ngIf="currUser" class="buttons">
+        <div class="eventaddC">
+            <a class="create" routerLink="/event/add">Create Event</a>
+        </div>
+        <div class="eventlistC">
+            <a class="find" routerLink="/event/list">Find Events</a>
+        </div>
+    </div>
+</div>

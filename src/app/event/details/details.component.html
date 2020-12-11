@@ -1,6 +1,8 @@
 <div *ngIf="!isLoading" class="container">
     <div *ngIf="toggleEdit">
-        <h1>Information</h1>
+        <div class="tcontainer">
+        <h1>Edit Event</h1>
+    </div>
         <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
             <div *ngIf="firebaseImgUrl===undefined && !isLoading">
                 <img ng src={{event.imgURL}}>
@@ -54,11 +56,12 @@
         </form>
     </div>
     <div *ngIf="!toggleEdit">
+        <div class="tcontainer">
+            <h1 class="title">{{event.name}}</h1>
+        </div>
         <div class="imgContainer">
             <img class="img" src={{event.imgURL}}>
         </div>
-
-        <h1 class="title">{{event.name}}</h1>
 
         <label>Location:</label>
         <div class="location">{{this.event.location}}</div>
