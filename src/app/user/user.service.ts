@@ -33,7 +33,7 @@ export class UserService {
             eventIds: [],
             followerIds: [],
             followingIds: [],
-            imgUrl: "",
+            photoURL: "",
           })
       }))
   }

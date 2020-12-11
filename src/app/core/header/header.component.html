@@ -27,7 +27,10 @@
             <li>
                 <a routerLink="/profile" >{{currUser}}</a>
             </li>
-            <li *ngIf="currUser">
+            <li *ngIf="currUser && (currUserImg!==undefined && currUserImg!==null)">
+                <img src={{currUserImg}}>
+            </li>
+            <li *ngIf="currUser && (currUserImg===undefined || currUserImg===null)">
                 <i class="fas fa-user"></i>
             </li>
             <li *ngIf="currUser" > 

@@ -17,13 +17,18 @@ export class ProfileComponent {
   path: String | undefined;
   firebaseImgUrl = "";
   isLoading=false;
+  currUserImg:string|undefined|null;
 
 
   constructor(
     private authService: AuthService,
     private userService: UserService,
     private af: AngularFireStorage
-  ) { }
+  ) {
+    authService.user$.subscribe(user=>{
+      this.currUserImg=user?.photoURL
+    })
+   }
 
 
   toggleEditMode(): void {
@@ -37,6 +42,7 @@ export class ProfileComponent {
     if (this.firebaseImgUrl !== "") {
       this.userService.updateUser(this.firebaseImgUrl).then(respone => {
         this.inEditMode = false;
+        this.currUserImg=this.firebaseImgUrl;
       }).catch(error => console.error(error));
     }
     this.isLoading=false;

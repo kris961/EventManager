@@ -94,7 +94,6 @@ export class AddEventComponent implements OnInit{
     this.eventService.create({title,location,date,details},this.userId,this.imgURL).subscribe({
       next:()=>{
         this.isLoading=false;
-        console.log("event added")
         this.router.navigate(['/event/list']);
       },
       error:(err)=>{
@@ -110,7 +109,6 @@ export class AddEventComponent implements OnInit{
     const ref=await this.af.upload("/eventPhotos/"+Math.random()+this.path,this.path);
     this.isLoading=false;
     await this.getUrl(ref);
-    console.log(this.firebaseImgUrl);
   }
 
   async getUrl(snap: any) {
