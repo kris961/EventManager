@@ -6,8 +6,14 @@
 
 
         <!-- E-mail -->
-        <input formControlName="email" [class.is-invalid]="emailInput?.touched && !!emailInput?.invalid" type="email" id="defaultRegisterFormEmail"
-            class="form-control mb-4" name="email" placeholder="E-mail">
+        <input 
+        formControlName="email" 
+        class="form-control mb-4" 
+        [class.is-invalid]="emailInput?.touched && !!emailInput?.invalid" 
+        type="email" 
+        id="defaultRegisterFormEmail"
+        name="email" 
+        placeholder="E-mail">
 
         <p *ngIf="emailInput?.touched && emailInput?.errors?.required" class="text-danger">
             Email is required!
@@ -25,11 +31,11 @@
         </p>
 
         <p *ngIf="passwordInput?.touched && passwordInput?.errors?.minlength" class="text-danger">
-            Password is must be at least 6 characters long!
+            Password must be at least 6 characters long!
         </p>
         <!-- Repeat Password -->
         <input formControlName="rePassword" [class.is-invalid]="rePasswordInput?.touched && !!rePasswordInput?.invalid"
-            id="defaultRegisterRePassword" class="form-control" name="repassword" placeholder="Repeat Password"
+            type="password" id="defaultRegisterRePassword" class="form-control" name="repassword" placeholder="Repeat Password"
             aria-describedby="defaultRegisterFormRePasswordHelpBlock">
 
         <p *ngIf="rePasswordInput?.touched && rePasswordInput?.errors?.required" class="text-danger">

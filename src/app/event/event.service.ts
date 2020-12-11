@@ -13,12 +13,10 @@ export class EventService {
   ) { }
 
 
-  username = localStorage.getItem('email');
-
   create(data: any, id: string, imgURL: string) {
     return from(this.firestore.collection('events').add({
       creatorId: id,
-      creatorName: this.username,
+      creatorName: localStorage.getItem('email'),
       commentIds: [],
       date: data.date,
       details: data.details,
@@ -48,7 +46,7 @@ export class EventService {
   createComment(text: any, id: any,eventId:any) {
     return from(this.firestore.collection('comments').add({
       creatorId: id,
-      creatorName: this.username,
+      creatorName: localStorage.getItem('email'),
       text: text,
       eventId:eventId
     }))

@@ -1,36 +1,49 @@
 <!-- Default form login -->
 <div class="container">
-<form #f="ngForm" class="text-center border border-light p-5" (ngSubmit)="submitFormHandler(f.value)">
+<form [formGroup]="form" (ngSubmit)="submitFormHandler()" class="text-center border border-light p-5">
 
     <p class="h4 mb-4">Sign in</p>
-  
+    <p class="text-danger" *ngIf="errorMessege">{{errorMessege}}</p>
     <!-- Email -->
-    <input [class.is-invalid]="userEmail?.touched && !!userEmail?.invalid" #userEmail="ngModel" name="email" type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" ngModel required email appSubmitOnValid>
-    <p *ngIf="userEmail.touched && userEmail.errors?.required" class="text-danger">
+    <input 
+    formControlName="email" 
+    class="form-control" 
+    [class.is-invalid]="emailInput?.touched && !!emailInput?.invalid" 
+    type="email" 
+    id="defaultLoginFormEmail" 
+    name="email" 
+    class="form-control mb-4" 
+    placeholder="E-mail">
+
+
+    <p *ngIf="emailInput.touched && emailInput?.errors?.required" class="text-danger">
       Email is required!
     </p>
-    <p *ngIf="userEmail.touched && userEmail.errors?.email" class="text-danger">
+    <p *ngIf="emailInput.touched && emailInput?.errors?.email" class="text-danger">
       Email is invalid!
     </p>
     <!-- Password -->
-    <input [class.is-invalid]="userPassword?.touched && !!userPassword?.invalid" #userPassword="ngModel" name="password" type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" ngModel required minlength="6">
+    <input 
+    formControlName="password" 
+    class="form-control" [class.is-invalid]="passwordInput?.touched && !!passwordInput?.invalid" 
+    name="password" 
+    type="password" 
+    id="defaultLoginFormPassword"
+     class="form-control mb-4" 
+     placeholder="Password">
   
-    <p *ngIf="userPassword.touched && userPassword.errors?.required" class="text-danger">
+    <p *ngIf="passwordInput.touched && passwordInput?.errors?.required" class="text-danger">
       Password is rquired!
     </p>
 
-    <p *ngIf="userPassword.touched && userPassword.errors?.minlength" class="text-danger">
-      Password is must be at least 6 characters long!
-    </p>
-
-    <p *ngIf="errorMessege.length>0" class="error" class="text-danger">
-      {{errorMessege}}
+    <p *ngIf="passwordInput.touched && passwordInput?.errors?.minlength" class="text-danger">
+      Password must be at least 6 characters long!
     </p>
 
     <!-- Sign in button -->
     <button 
-    [disabled]="f.invalid || isLoading"
-    [class.disabled]="isLoading ||f.invalid" 
+    [disabled]="form!.invalid || isLoading"
+    [class.disabled]="isLoading ||form!.invalid" 
      mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
   
     <!-- Register -->

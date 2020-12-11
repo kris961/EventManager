@@ -101,22 +101,23 @@
                             Comment panel
                         </div>
                         <div class="panel-body">
-                            <form #f="ngForm" >
                             <input type="text" #text class="form-control" placeholder="write a comment..." rows="3">
                             <br>
-                            <button type="submit" (click)='createComment(text.value)' class="btn btn-info pull-right">Post</button>
-                        </form>
+                            <button type="submit" (click)='createComment(text.value)'
+                                class="btn btn-info pull-right">Post</button>
                             <div class="clearfix"></div>
                             <hr>
                             <ul *ngFor="let comment of commentList" class="media-list">
-                                <li  class="media">
-                                    <div class="media-body">
-                                        <strong class="text-success">{{comment.info.creatorName}}</strong>
-                                        <p>
-                                            {{comment.info.text}}
-                                        </p>
-                                    </div>
-                                </li>
+                                <div *ngIf="comment.name!==undefined">
+                                    <li class="media">
+                                        <div class="media-body">
+                                            <strong class="text-success">{{comment.info.creatorName}}</strong>
+                                            <p>
+                                                {{comment.info.text}}
+                                            </p>
+                                        </div>
+                                    </li>
+                                </div>
                             </ul>
                         </div>
                     </div>

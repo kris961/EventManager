@@ -40,7 +40,7 @@ export class RegisterComponent {
       Validators.minLength(6),
     ]);
 
-    this.form = this.fb.group({
+    this.form! = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: passwordControl,
       rePassword: [

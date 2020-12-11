@@ -98,18 +98,16 @@ export class DetailsComponent implements OnInit {
     this.toggleEdit=false;
     this.router.navigate([`event/details/${this.eventId}`]);
     console.log("done");
-    this.ngOnInit();
   }
 
   createComment(input:any){
-    if (input!==undefined) {
+    if (input!==undefined && input!=="") {
       let text=input;
       let userId=this.currUser;
       console.log(this.event.id);
       this.eventService.createComment(text,userId,this.eventId).subscribe({
         next:()=>{
           this.isLoading=false;
-          console.log("comment added")
         },
         error:(err)=>{
           this.isLoading=false;
