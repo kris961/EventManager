@@ -1,27 +1,25 @@
-# EventManager
+# Event Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+** This project was generated with  `Angular CLI`  ([https://github.com/angular/angular-cli](https://github.com/angular/angular-cli)) version 10.2.0.
 
-## Development server
+** Backend service provided by  `firebase / angularfire`  ([https://github.com/angular/angularfire](https://github.com/angular/angularfire)).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+** A simple web app, created for passing  `Angular exam @softuni Bulgaria`.
 
-## Code scaffolding
+```
+- Implemented basic CRUD operations for the events, user creation and management
+- Implemented main list of events, user events, details, editing events,deleting events,creating comments & editing profile
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 2 Angularfire collections: events and comments
+```
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# How to use
+** You need to have the angular cli installed. If you don't have it run  `npm install -g @angular/cli`.
 
-## Running unit tests
+** Run  `ng s`  for the app to start. Navigate to  `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+** If the app doesn't start properly it is probably  `expired backend service`. Please contact me so I can make a new connection for you.
+**the app is deployed at "https://eventmanager-c9876.web.app" WARNING!! App is not responsive and was made for 1440 x 900 resolution
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+** The Editing and Deleting of events are  `allowed and accessible`  for their creator only. Logged out users have access to all events but are unable to access their details. Creation of events is available for every user.
