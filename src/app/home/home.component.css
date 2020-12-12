@@ -66,3 +66,16 @@
     left:10px;
     font-size: 30px;
 }
+
+.imgContainer{
+    width: 1450px;
+    height: 750px;
+    position: absolute;
+    z-index: -1;
+    right: 0px;
+    bottom: 0px;
+}
+.imgContainer img{
+    width: 1450px;
+    height: 750px;
+}
