@@ -33,7 +33,7 @@
             </p>
 
             <input #dateInput="ngModel" [ngModel]="event.date"
-                [class.is-invalid]="dateInput?.touched && !!dateInput?.invalid" type="text" id="input1" name="date"
+                [class.is-invalid]="dateInput?.touched && !!dateInput?.invalid" type="date" id="input1" name="date"
                 placeholder="Date" required>
             <p *ngIf="dateInput?.touched && dateInput?.errors?.required" class="text-danger">
                 Date is required!
@@ -104,7 +104,7 @@
                             Comment panel
                         </div>
                         <div class="panel-body">
-                            <input type="text" #text class="form-control" placeholder="write a comment..." rows="3">
+                            <input id="text" type="text" #text class="form-control" placeholder="write a comment..." rows="3">
                             <br>
                             <button type="submit" (click)='createComment(text.value)'
                                 class="btn btn-info pull-right">Post</button>

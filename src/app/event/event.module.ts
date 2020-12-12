@@ -8,7 +8,6 @@ import { AuthService } from '../core/services/auth.service';
 import { RouterModule } from '@angular/router';
 import { MyEventComponent } from './my-event/my-event.component';
 import { DetailsComponent } from './details/details.component';
-import { EditComponent } from './edit/edit.component';
 
 
 
@@ -18,7 +17,6 @@ import { EditComponent } from './edit/edit.component';
     EventListComponent, 
     MyEventComponent, 
     DetailsComponent, 
-    EditComponent
   ],
   imports: [
     CommonModule,

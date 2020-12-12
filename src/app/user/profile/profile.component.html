@@ -26,7 +26,7 @@
     <img src={{(currentUser|async)?.photoURL}} alt="default user">
   </div>
   <div *ngIf="(currUserImg===undefined || currUserImg===null)">
-    <img src="https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144855718.jpg" alt="default user">
+    <img src="../../../../assets/default.jpg" alt="default user">
   </div>
   <ng-container *ngTemplateOutlet="inEditMode ? editMode : defaultMode"></ng-container>
 </div>

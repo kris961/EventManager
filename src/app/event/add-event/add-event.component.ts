@@ -13,7 +13,7 @@ import { AngularFireStorage } from '@angular/fire/storage'
 export class AddEventComponent implements OnInit{
   form:FormGroup;
   isLoading:boolean=false;
-  imgURL="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png";
+  imgURL="../../../../assets/placeholder.jpg";
   userId="";
   path: String | undefined;
   firebaseImgUrl = undefined;
@@ -94,7 +94,7 @@ export class AddEventComponent implements OnInit{
     this.eventService.create({title,location,date,details},this.userId,this.imgURL).subscribe({
       next:()=>{
         this.isLoading=false;
-        this.router.navigate(['/event/list']);
+        this.router.navigate(['/event/myEvent']);
       },
       error:(err)=>{
         this.isLoading=false;

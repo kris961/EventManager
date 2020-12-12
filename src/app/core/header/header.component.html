@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <div class="nav-container">
         <span>
-            <img class="logo" src="../../../../assets/ee9556c1-a05a-443c-bd5d-343124ac170c_200x200.png">
+            <img class="logo" src="../../../../assets/logo.png">
         </span>
         <ul class="management">
             <li>
@@ -28,7 +28,7 @@
                 <a routerLink="/profile" >{{currUser}}</a>
             </li>
             <li *ngIf="currUser && (currUserImg!==undefined && currUserImg!==null)">
-                <img src={{currUserImg}}>
+                <img class="prof" src={{currUserImg}}>
             </li>
             <li *ngIf="currUser && (currUserImg===undefined || currUserImg===null)">
                 <i class="fas fa-user"></i>

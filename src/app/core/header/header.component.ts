@@ -10,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent {
   public currUser!: string
-  currUserImg:string|undefined|null;
+  currUserImg:string|null|undefined
 
   constructor(
     private router: Router,

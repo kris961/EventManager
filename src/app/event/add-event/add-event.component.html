@@ -4,7 +4,7 @@
 </div>
   <form [formGroup]="form" (ngSubmit)="submitHandler()">
     <div *ngIf="firebaseImgUrl===undefined && !isLoading">
-    <img ng src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/shutterstock_199419065.jpg">
+    <img ng src="../../../../assets/placeholder.jpg">
   </div>
   <div *ngIf="firebaseImgUrl!==undefined && !isLoading">
     <img ng src={{firebaseImgUrl}}>
@@ -29,7 +29,7 @@
       Location must be at least 3 characters long!
     </p>
 
-    <input formControlName="date" [class.is-invalid]="dateInput?.touched && !!dateInput?.invalid" type="text"
+    <input formControlName="date" [class.is-invalid]="dateInput?.touched && !!dateInput?.invalid" type="date"
       id="input1" name="date" placeholder="Date">
     <p *ngIf="dateInput?.touched && dateInput?.errors?.required" class="text-danger">
       Date is required!
